@@ -88,3 +88,6 @@ class ChatCompletion(BaseModel):
 
     usage: Optional[CompletionUsage] = None
     """Usage statistics for the completion request."""
+
+    prefill_time: Optional[float] = 0.0
+    decode_time: Optional[float] = 0.0
