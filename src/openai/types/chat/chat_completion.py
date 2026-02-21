@@ -90,6 +90,6 @@ class ChatCompletion(BaseModel):
     """Usage statistics for the completion request."""
 
     prefill_time: Optional[float] = 0.0
-    decode_time: Optional[float] = 0.0
+    decode_time: Optional[List[float]] = 0.0
     num_local_cache: Optional[int] = 0
     num_global_cache: Optional[int] = 0
