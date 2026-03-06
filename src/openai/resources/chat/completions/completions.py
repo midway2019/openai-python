@@ -236,7 +236,7 @@ class Completions(SyncAPIResource):
         model: Union[str, ChatModel],
         audio: Optional[ChatCompletionAudioParam] | NotGiven = NOT_GIVEN,
         frequency_penalty: Optional[float] | NotGiven = NOT_GIVEN,
-        function_call: completion_create_params.FunctionCall | NotGiven = NOT_GIVEN,R
+        function_call: completion_create_params.FunctionCall | NotGiven = NOT_GIVEN,
         functions: Iterable[completion_create_params.Function] | NotGiven = NOT_GIVEN,
         logit_bias: Optional[Dict[str, int]] | NotGiven = NOT_GIVEN,
         logprobs: Optional[bool] | NotGiven = NOT_GIVEN,
@@ -269,6 +269,8 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        agent_id: str | None = None,
+        task_id: int | None = None
     ) -> ChatCompletion:
         """
         **Starting a new project?** We recommend trying
@@ -1084,6 +1086,8 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        agent_id: str | None = None,
+        task_id: int | None = None
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         validate_response_format(response_format)
         return self._post(
@@ -1121,6 +1125,8 @@ class Completions(SyncAPIResource):
                     "top_p": top_p,
                     "user": user,
                     "web_search_options": web_search_options,
+                    "agent_id": agent_id,
+                    "task_id": task_id
                 },
                 completion_create_params.CompletionCreateParamsStreaming
                 if stream
