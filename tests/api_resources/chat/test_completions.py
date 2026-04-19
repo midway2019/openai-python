@@ -96,6 +96,7 @@ class TestCompletions:
             top_logprobs=0,
             top_p=1,
             user="user-1234",
+            context_id="ctx_test_001",
             web_search_options={
                 "search_context_size": "low",
                 "user_location": {
@@ -222,6 +223,7 @@ class TestCompletions:
             top_logprobs=0,
             top_p=1,
             user="user-1234",
+            context_id="ctx_test_001",
             web_search_options={
                 "search_context_size": "low",
                 "user_location": {
@@ -525,6 +527,7 @@ class TestAsyncCompletions:
             top_logprobs=0,
             top_p=1,
             user="user-1234",
+            context_id="ctx_test_001",
             web_search_options={
                 "search_context_size": "low",
                 "user_location": {
@@ -651,6 +654,7 @@ class TestAsyncCompletions:
             top_logprobs=0,
             top_p=1,
             user="user-1234",
+            context_id="ctx_test_001",
             web_search_options={
                 "search_context_size": "low",
                 "user_location": {

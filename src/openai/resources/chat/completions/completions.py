@@ -269,6 +269,7 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        context_id: str | None = None,
         agent_id: str | None = None,
         task_id: int | None = None
     ) -> ChatCompletion:
@@ -542,6 +543,7 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        context_id: str | None = None,
     ) -> Stream[ChatCompletionChunk]:
         """
         **Starting a new project?** We recommend trying
@@ -813,6 +815,7 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        context_id: str | None = None,
         agent_id: str | None = None,
         task_id: int | None = None,
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
@@ -1086,6 +1089,7 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        context_id: str | None = None,
         agent_id: str | None = None,
         task_id: int | None = None
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
@@ -1125,6 +1129,7 @@ class Completions(SyncAPIResource):
                     "top_p": top_p,
                     "user": user,
                     "web_search_options": web_search_options,
+                    "context_id": context_id,
                     "agent_id": agent_id,
                     "task_id": task_id
                 },
@@ -1644,6 +1649,7 @@ class AsyncCompletions(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        context_id: str | None = None,
     ) -> ChatCompletion:
         """
         **Starting a new project?** We recommend trying
@@ -1915,6 +1921,7 @@ class AsyncCompletions(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        context_id: str | None = None,
     ) -> AsyncStream[ChatCompletionChunk]:
         """
         **Starting a new project?** We recommend trying
@@ -2186,6 +2193,7 @@ class AsyncCompletions(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        context_id: str | None = None,
     ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
         """
         **Starting a new project?** We recommend trying
@@ -2457,6 +2465,7 @@ class AsyncCompletions(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        context_id: str | None = None,
     ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
         validate_response_format(response_format)
         return await self._post(
@@ -2494,6 +2503,7 @@ class AsyncCompletions(AsyncAPIResource):
                     "top_p": top_p,
                     "user": user,
                     "web_search_options": web_search_options,
+                    "context_id": context_id,
                 },
                 completion_create_params.CompletionCreateParamsStreaming
                 if stream

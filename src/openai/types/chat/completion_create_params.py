@@ -307,6 +307,7 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     [web search tool](https://platform.openai.com/docs/guides/tools-web-search?api-mode=chat).
     """
 
+    context_id: str
     agent_id: str
     task_id: int
 
