@@ -310,6 +310,7 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     context_id: str
     agent_id: str
     task_id: int
+    call_id: str
 
 
 FunctionCall: TypeAlias = Union[Literal["none", "auto"], ChatCompletionFunctionCallOptionParam]
