@@ -278,6 +278,10 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
+        context_id: str | None = None,
+        agent_id: str | None = None,
+        task_id: int | None = None,
+        call_id: str | None = None,
     ) -> ChatCompletion:
         """
         **Starting a new project?** We recommend trying
@@ -569,6 +573,8 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
+        context_id: str | None = None,
+        call_id: str | None = None,
     ) -> Stream[ChatCompletionChunk]:
         """
         **Starting a new project?** We recommend trying
@@ -860,6 +866,10 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
+        context_id: str | None = None,
+        agent_id: str | None = None,
+        task_id: int | None = None,
+        call_id: str | None = None,
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         """
         **Starting a new project?** We recommend trying
@@ -1151,6 +1161,10 @@ class Completions(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
+        context_id: str | None = None,
+        agent_id: str | None = None,
+        task_id: int | None = None,
+        call_id: str | None = None,
     ) -> ChatCompletion | Stream[ChatCompletionChunk]:
         validate_response_format(response_format)
         return self._post(
@@ -1191,6 +1205,10 @@ class Completions(SyncAPIResource):
                     "user": user,
                     "verbosity": verbosity,
                     "web_search_options": web_search_options,
+                    "context_id": context_id,
+                    "agent_id": agent_id,
+                    "task_id": task_id,
+                    "call_id": call_id,
                 },
                 completion_create_params.CompletionCreateParamsStreaming
                 if stream
@@ -1725,6 +1743,8 @@ class AsyncCompletions(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
+        context_id: str | None = None,
+        call_id: str | None = None,
     ) -> ChatCompletion:
         """
         **Starting a new project?** We recommend trying
@@ -2016,6 +2036,8 @@ class AsyncCompletions(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
+        context_id: str | None = None,
+        call_id: str | None = None,
     ) -> AsyncStream[ChatCompletionChunk]:
         """
         **Starting a new project?** We recommend trying
@@ -2307,6 +2329,8 @@ class AsyncCompletions(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
+        context_id: str | None = None,
+        call_id: str | None = None,
     ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
         """
         **Starting a new project?** We recommend trying
@@ -2598,6 +2622,8 @@ class AsyncCompletions(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
+        context_id: str | None = None,
+        call_id: str | None = None,
     ) -> ChatCompletion | AsyncStream[ChatCompletionChunk]:
         validate_response_format(response_format)
         return await self._post(
@@ -2638,6 +2664,8 @@ class AsyncCompletions(AsyncAPIResource):
                     "user": user,
                     "verbosity": verbosity,
                     "web_search_options": web_search_options,
+                    "context_id": context_id,
+                    "call_id": call_id,
                 },
                 completion_create_params.CompletionCreateParamsStreaming
                 if stream
